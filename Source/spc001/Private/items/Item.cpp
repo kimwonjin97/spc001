@@ -18,22 +18,13 @@ AItem::AItem()
 void AItem::BeginPlay()
 {
 	Super::BeginPlay();
-	UE_LOG(LogTemp, Warning, TEXT("Begin Play called!"));
 
-	if (GEngine)
-	{
-		GEngine->AddOnScreenDebugMessage(1, 60.f, FColor::Cyan, FString("Item OnScreen Message!"));
-	}
 	UWorld* World = GetWorld(); 
-
-	/*if (World)
-	{
-		FVector Location = GetActorLocation();
-		DrawDebugSphere(World, Location, 25.f, 24, FColor::Red, false, 30.f);
-	}*/
-	
 	FVector Location = GetActorLocation();
+	FVector Forward = GetActorForwardVector();
+	
 	DRAW_SPHERE(Location);
+	DRAW_LINE(Location, Location + Forward * 100.f);
 
 }
 
