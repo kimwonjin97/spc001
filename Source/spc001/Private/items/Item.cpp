@@ -16,6 +16,12 @@ void AItem::BeginPlay()
 {
 	Super::BeginPlay();
 
+	int32 AvgInt = Avg<int32>(1, 3);
+
+	UE_LOG(LogTemp, Warning, TEXT("Avg of 1 and 3: %d"), AvgInt);
+
+	float AvgFloat = Avg<float>(3.45f, 7.86f);
+	UE_LOG(LogTemp, Warning, TEXT("Avg of 1 and 3: %d"), AvgFloat);
 
 }
 
@@ -42,5 +48,8 @@ void AItem::Tick(float DeltaTime)
 
 	DRAW_SPHERE_SingleFrame(GetActorLocation());
 	DRAW_VECTOR_SingleFrame(GetActorLocation(), GetActorLocation() + GetActorForwardVector() * 100.f);
+
+	FVector AvgVector = Avg<FVector>(GetActorLocation(), FVector::ZeroVector);
+	DRAW_POINT_SingleFrame(AvgVector); 
 }
 
