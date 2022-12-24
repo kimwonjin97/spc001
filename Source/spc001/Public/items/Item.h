@@ -22,7 +22,7 @@ protected:
 	float Amplitude = 0.25f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Since Parameter")
-		float TimeConstant = 5.f;
+	float TimeConstant = 5.f;
 
 	UFUNCTION(BlueprintPure)
 	float TransformSine();
@@ -37,6 +37,8 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true")) //meta is need to expose variable in the private to the event graph
 	float RunningTime;
 
+	UPROPERTY(VisibleAnywhere)
+	UStaticMeshComponent* ItemMesh;
 
 
 };
