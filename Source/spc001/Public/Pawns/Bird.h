@@ -5,9 +5,10 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
 
-#include "Components/CapsuleComponent.h"
 //must be final include
 #include "Bird.generated.h"
+
+class UCapsuleComponent;
 
 UCLASS()
 class SPC001_API ABird : public APawn
@@ -22,8 +23,7 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
-//private:
-public:
-	UPROPERTY(VisibleAnywhere);
+private:
+	UPROPERTY(VisibleAnywhere)
 	UCapsuleComponent* Capsule; 
 };
