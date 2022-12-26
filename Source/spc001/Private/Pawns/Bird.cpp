@@ -9,6 +9,11 @@ ABird::ABird()
  
 	PrimaryActorTick.bCanEverTick = true;
 
+	Capsule = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Capsule"));
+
+	Capsule->SetCapsuleHalfHeight(20.f);
+	Capsule->SetCapsuleRadius(15);
+	SetRootComponent(Capsule);
 }
 
 void ABird::BeginPlay()
